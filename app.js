@@ -8,3 +8,9 @@ const OPENAI_API_KEY = "YOUR_OPENAI_API_KEY";
 function czytajPlik(filepath) {
     return fs.readFileSync(filepath, 'utf8');
 }
+
+async function main() {
+    const sciezkaPlikuArtykulu = "artykul.txt";  
+    // Ścieżka do pliku z artykułem
+    const tekstArtykulu = czytajPlik(sciezkaPlikuArtykulu);
+}
