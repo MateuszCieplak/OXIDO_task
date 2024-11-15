@@ -51,3 +51,9 @@ async function generujHtmlZArtykulu(tekstArtykulu) {
         return null;
     }
 }
+
+// Funkcja do zapisywania wygenerowanego HTML w pliku
+function zapiszHtmlDoPliku(htmlContent, filepath = "artykul.html") {
+    fs.writeFileSync(filepath, htmlContent, 'utf8');
+    console.log(`Wygenerowano plik ${filepath} z przetworzoną zawartością HTML.`);
+}
