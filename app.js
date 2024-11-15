@@ -13,6 +13,14 @@ async function main() {
     const sciezkaPlikuArtykulu = "artykul.txt";  
     // Ścieżka do pliku z artykułem
     const tekstArtykulu = czytajPlik(sciezkaPlikuArtykulu);
+
+    const htmlContent = await generujHtmlZArtykulu(tekstArtykulu);
+
+    if (htmlContent) {
+        zapiszHtmlDoPliku(htmlContent);
+    } else {
+        console.error("Nie udało się wygenerować HTML.");
+    }
 }
 
 //Funkcja do generowania pliku HTML za pomocą OpenAI
@@ -57,3 +65,6 @@ function zapiszHtmlDoPliku(htmlContent, filepath = "artykul.html") {
     fs.writeFileSync(filepath, htmlContent, 'utf8');
     console.log(`Wygenerowano plik ${filepath} z przetworzoną zawartością HTML.`);
 }
+
+//Wywołanie głównej funkcji "main"
+main();
